@@ -1,0 +1,74 @@
+# TCP_Chat_Project/client/client_core.py
+
+import socket, threading, os, sys
+from config import HOST, PORT
+from client.ui_helpers import print_help_menu, print_incoming_message
+
+class ChatClient:
+    def __init__(self):
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.is_running = True
+        self.username = None
+
+    def login(self):
+        while self.is_running:
+            username = input("Nhập username: ")
+            if not username: continue
+            
+            self.socket.send(username.encode('utf-8'))
+            response = self.socket.recv(1024).decode('utf-8')
+            
+            if response == "REQ_PASS":
+                password = input("Nhập mật khẩu admin: ")
+                self.socket.send(password.encode('utf-8'))
+                response = self.socket.recv(1024).decode('utf-8')
+
+            if response == "SUCCESS":
+                self.username = username
+                print("\nĐăng nhập thành công!")
+                return True
+            else:
+                print(f"[SERVER] {response}")
+                # Nếu đăng nhập thất bại, không tiếp tục chạy client
+                return False
+
+    def receive_messages(self):
+        while self.is_running:
+            try:
+                msg = self.socket.recv(1024).decode('utf-8')
+                if not msg:
+                    break
+                print_incoming_message(msg)
+            except:
+                break
+        
+        print("\n[!] Mất kết nối tới server.")
+        self.is_running = False
+        os._exit(0) # Thoát hoàn toàn chương trình client
+
+    def start(self):
+        try:
+            self.socket.connect((HOST, PORT))
+        except ConnectionRefusedError:
+            print("[!] Lỗi kết nối. Server chưa được bật hoặc sai địa chỉ.")
+            return
+
+        if self.login():
+            print_help_menu(is_admin=(self.username == 'admin'))
+            threading.Thread(target=self.receive_messages, daemon=True).start()
+            
+            # Vòng lặp chính để gửi lệnh/tin nhắn
+            while self.is_running:
+                try:
+                    cmd = input(">> ")
+                    if cmd == "/quit":
+                        break
+                    if cmd:
+                        self.socket.send(cmd.encode('utf-8'))
+                except (KeyboardInterrupt, EOFError):
+                    break
+        
+        self.is_running = False
+        self.socket.close()
+        print("\nĐã ngắt kết nối.")
+        os._exit(0)
