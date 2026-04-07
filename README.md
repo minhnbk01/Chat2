@@ -4,13 +4,13 @@ Một ứng dụng chat sử dụng giao thức TCP, cho phép nhiều người 
 
 ## Mục Lục
 
-[Tính Năng](#tính-năng)
-[Yêu Cầu Hệ Thống](#yêu-cầu-hệ-thống)
-[Cài Đặt](#cài-đặt)
-[Cấu Trúc Dự Án](#cấu-trúc-dự-án)
-[Hướng Dẫn Sử Dụng](#hướng-dẫn-sử-dụng)
-[Các Lệnh Hỗ Trợ](#các-lệnh-hỗ-trợ)
-[Cấu Hình](#cấu-hình)
+- [Tính Năng](#tính-năng)
+- [Yêu Cầu Hệ Thống](#yêu-cầu-hệ-thống)
+- [Cài Đặt](#cài-đặt)
+- [Cấu Trúc Dự Án](#cấu-trúc-dự-án)
+- [Hướng Dẫn Sử Dụng](#hướng-dẫn-sử-dụng)
+- [Các Lệnh Hỗ Trợ](#các-lệnh-hỗ-trợ)
+- [Cấu Hình](#cấu-hình)
 
 ## Tính Năng
 
