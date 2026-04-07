@@ -1,4 +1,4 @@
-# TCP Chat Application
+# Chat Console via TCP
 
 Một ứng dụng chat sử dụng giao thức TCP, cho phép nhiều người dùng trò chuyện với nhau thông qua kết nối mạng.
 
