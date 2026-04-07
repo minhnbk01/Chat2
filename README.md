@@ -170,13 +170,6 @@ ADMIN_PASS = 'adminpass'  # Mật khẩu để đăng nhập với quyền admin
 BANS_FILE = 'bans.txt'    # Tên file lưu danh sách người dùng bị cấm
 ```
 
-### Thay Đổi Mật Khẩu Admin
-
-Mở `config.py` và thay đổi giá trị `ADMIN_PASS`:
-```python
-ADMIN_PASS = 'your_new_password'
-```
-
 ### Thay Đổi Cổng Server
 
 Mở `config.py` và thay đổi giá trị `PORT`:
