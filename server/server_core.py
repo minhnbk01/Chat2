@@ -12,7 +12,7 @@ class ChatServer:
         self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
     def broadcast(self, message, sender_name=None):
-        """Gửi tin nhắn tới tất cả client, trừ người gửi."""
+
         with self.lock:
             for username, client_socket in self.clients.items():
                 if username != sender_name:

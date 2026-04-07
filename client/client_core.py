@@ -6,7 +6,7 @@ from client.ui_helpers import print_help_menu, print_incoming_message
 
 class ChatClient:
     def __init__(self):
-        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.is_running = True
         self.username = None
 
@@ -15,13 +15,13 @@ class ChatClient:
             username = input("Nhập username: ")
             if not username: continue
             
-            self.socket.send(username.encode('utf-8'))
-            response = self.socket.recv(1024).decode('utf-8')
+            self.client_socket.send(username.encode('utf-8'))
+            response = self.client_socket.recv(1024).decode('utf-8')
             
             if response == "REQ_PASS":
                 password = input("Nhập mật khẩu admin: ")
-                self.socket.send(password.encode('utf-8'))
-                response = self.socket.recv(1024).decode('utf-8')
+                self.client_socket.send(password.encode('utf-8'))
+                response = self.client_socket.recv(1024).decode('utf-8')
 
             if response == "SUCCESS":
                 self.username = username
@@ -35,7 +35,7 @@ class ChatClient:
     def receive_messages(self):
         while self.is_running:
             try:
-                msg = self.socket.recv(1024).decode('utf-8')
+                msg = self.client_socket.recv(1024).decode('utf-8')
                 if not msg:
                     break
                 print_incoming_message(msg)
@@ -48,7 +48,7 @@ class ChatClient:
 
     def start(self):
         try:
-            self.socket.connect((HOST, PORT))
+            self.client_socket.connect((HOST, PORT))
         except ConnectionRefusedError:
             print("[!] Lỗi kết nối. Server chưa được bật hoặc sai địa chỉ.")
             return
@@ -64,11 +64,11 @@ class ChatClient:
                     if cmd == "/quit":
                         break
                     if cmd:
-                        self.socket.send(cmd.encode('utf-8'))
+                        self.client_socket.send(cmd.encode('utf-8'))
                 except (KeyboardInterrupt, EOFError):
                     break
         
         self.is_running = False
-        self.socket.close()
+        self.client_socket.close()
         print("\nĐã ngắt kết nối.")
         os._exit(0)
