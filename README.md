@@ -242,18 +242,6 @@ ERROR: Sai mật khẩu admin!
 ```
 **Giải pháp**: Kiểm tra lại mật khẩu admin în `config.py`.
 
-## Ghi Chú Quan Trọng
-
-1. **Localhost chỉ**: Mặc định server chạy trên `127.0.0.1` (localhost). Để cho phép kết nối từ máy khác, thay đổi `HOST = '0.0.0.0'` trong `config.py`.
-
-2. **Firewall**: Nếu kết nối từ máy khác, hãy kiểm tra tường lửa có cho phép cổng này không.
-
-3. **Admin không thể bị kick/ban**: Admin có quyền đặc biệt và không thể tự kick hoặc ban bản thân.
-
-4. **Persistence**: Danh sách ban được lưu vĩnh viễn trong `bans.txt`, nhưng danh sách người dùng online không (reset khi server khởi động lại).
-
-5. **Mã hóa**: Hiện tại không có mã hóa. Dành cho mục đích học tập và sử dụng địa phương.
-
 ## Nâng Cấp Trong Tương Lai
 
 - [ ] Mã hóa kết nối (SSL/TLS)
