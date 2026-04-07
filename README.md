@@ -2,7 +2,7 @@
 
 Một ứng dụng chat sử dụng giao thức TCP, cho phép nhiều người dùng trò chuyện với nhau thông qua kết nối mạng.
 
-## 📋 Mục Lục
+## Mục Lục
 
 - [Tính Năng](#tính-năng)
 - [Yêu Cầu Hệ Thống](#yêu-cầu-hệ-thống)
