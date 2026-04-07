@@ -208,7 +208,7 @@ Chat-tcp/
 
 ## Bảo Mật
 
-- Mật khẩu admin được lưu trong `config.py` (xem xét lưu vào environment variable trong production)
+- Mật khẩu admin được lưu trong `config.py` (xem xét lưu vào environment variable)
 - Danh sách ban được lưu trong file `bans.txt` (dễ dàng quản lý)
 - Sử dụng threading locks để bảo vệ dữ liệu khi có nhiều client truy cập đồng thời
 
