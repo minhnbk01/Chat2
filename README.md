@@ -163,7 +163,7 @@ Mở `config.py` và thay đổi giá trị `PORT`:
 PORT = 8888  # Hoặc cổng khác
 ```
 
-## 📂 Cấu Trúc Dự Án
+## Cấu Trúc Dự Án
 
 ```
 Chat-tcp/
@@ -212,7 +212,7 @@ Chat-tcp/
 - Danh sách ban được lưu trong file `bans.txt` (dễ dàng quản lý)
 - Sử dụng threading locks để bảo vệ dữ liệu khi có nhiều client truy cập đồng thời
 
-## 🐛 Xử Lý Lỗi
+## Xử Lý Lỗi
 
 ### Lỗi Kết Nối
 
@@ -264,6 +264,3 @@ ERROR: Sai mật khẩu admin!
 - [ ] Rate limiting để chống spam
 - [ ] Sistema logging chi tiết
 
----
-
-**Vui lòng báo cáo bất kỳ vấn đề hoặc gợi ý cải thiện!**
