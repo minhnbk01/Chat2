@@ -103,6 +103,27 @@ Nhập mật khẩu admin: adminpass
 /ban <tên>     - Cấm một người dùng vĩnh viễn
 ```
 
+## Cấu Trúc Dự Án
+
+```
+Chat-tcp/
+├── README.md                 # Tệp này - Hướng dẫn dự án
+├── config.py                 # File cấu hình chung
+├── bans.txt                  # Danh sách người dùng bị cấm
+├── start_server.py           # Điểm vào của server
+├── start_client.py           # Điểm vào của client
+│
+├── server/                   # Thư mục server
+│   ├── __init__.py
+│   ├── server_core.py        # Logic xử lý server chính
+│   └── ban_manager.py        # Quản lý hệ thống ban
+│
+└── client/                   # Thư mục client
+    ├── __init__.py
+    ├── client_core.py        # Logic xử lý client chính
+    └── ui_helpers.py         # Công cụ hỗ trợ giao diện
+```
+
 ## Các Lệnh Hỗ Trợ
 
 | Lệnh | Cú Pháp | Mô Tả |
@@ -161,27 +182,6 @@ ADMIN_PASS = 'your_new_password'
 Mở `config.py` và thay đổi giá trị `PORT`:
 ```python
 PORT = 8888  # Hoặc cổng khác
-```
-
-## Cấu Trúc Dự Án
-
-```
-Chat-tcp/
-├── README.md                 # Tệp này - Hướng dẫn dự án
-├── config.py                 # File cấu hình chung
-├── bans.txt                  # Danh sách người dùng bị cấm
-├── start_server.py           # Điểm vào của server
-├── start_client.py           # Điểm vào của client
-│
-├── server/                   # Thư mục server
-│   ├── __init__.py
-│   ├── server_core.py        # Logic xử lý server chính
-│   └── ban_manager.py        # Quản lý hệ thống ban
-│
-└── client/                   # Thư mục client
-    ├── __init__.py
-    ├── client_core.py        # Logic xử lý client chính
-    └── ui_helpers.py         # Công cụ hỗ trợ giao diện
 ```
 
 ### Mô Tả Chi Tiết
