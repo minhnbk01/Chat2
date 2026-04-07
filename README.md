@@ -48,6 +48,27 @@ python --version
 ### 3. Không cần cài đặt dependencies bổ sung
 Dự án sử dụng các module chuẩn của Python.
 
+## Cấu Trúc Dự Án
+
+```
+Chat-tcp/
+├── README.md                 # Tệp này - Hướng dẫn dự án
+├── config.py                 # File cấu hình chung
+├── bans.txt                  # Danh sách người dùng bị cấm
+├── start_server.py           # Điểm vào của server
+├── start_client.py           # Điểm vào của client
+│
+├── server/                   # Thư mục server
+│   ├── __init__.py
+│   ├── server_core.py        # Logic xử lý server chính
+│   └── ban_manager.py        # Quản lý hệ thống ban
+│
+└── client/                   # Thư mục client
+    ├── __init__.py
+    ├── client_core.py        # Logic xử lý client chính
+    └── ui_helpers.py         # Công cụ hỗ trợ giao diện
+```
+
 ## Hướng Dẫn Sử Dụng
 
 ### Khởi Động Server
@@ -101,27 +122,6 @@ Nhập mật khẩu admin: adminpass
 --- Lệnh Admin ---
 /kick <tên>    - Đuổi một người dùng khỏi phòng chat
 /ban <tên>     - Cấm một người dùng vĩnh viễn
-```
-
-## Cấu Trúc Dự Án
-
-```
-Chat-tcp/
-├── README.md                 # Tệp này - Hướng dẫn dự án
-├── config.py                 # File cấu hình chung
-├── bans.txt                  # Danh sách người dùng bị cấm
-├── start_server.py           # Điểm vào của server
-├── start_client.py           # Điểm vào của client
-│
-├── server/                   # Thư mục server
-│   ├── __init__.py
-│   ├── server_core.py        # Logic xử lý server chính
-│   └── ban_manager.py        # Quản lý hệ thống ban
-│
-└── client/                   # Thư mục client
-    ├── __init__.py
-    ├── client_core.py        # Logic xử lý client chính
-    └── ui_helpers.py         # Công cụ hỗ trợ giao diện
 ```
 
 ## Các Lệnh Hỗ Trợ
